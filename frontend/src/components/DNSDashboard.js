@@ -92,12 +92,10 @@ function DNSDashboard() {
       const fileContent = e.target.result;
 
       if (fileType === 'csv') {
-        // Parse CSV using papaparse library
         Papa.parse(fileContent, {
           header: true,
           dynamicTyping: true,
           complete: (result) => {
-            // Assuming the CSV has 'domain', 'type', and 'value' columns
             setRecords([...records, ...result.data]);
           },
         });
